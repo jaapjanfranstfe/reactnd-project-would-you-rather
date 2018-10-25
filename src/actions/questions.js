@@ -33,9 +33,9 @@ export function handleAddQuestion(questionInfo) {
         const { authedUser } = getState();
         questionInfo.author = authedUser;
 
-        dispatch(showLoading())
+        dispatch(showLoading());
 
-        return saveQuestion(question)
+        return saveQuestion(questionInfo)
             .then((question) => dispatch(addQuestion(question)))
             .then(() => dispatch(hideLoading()))
     }
