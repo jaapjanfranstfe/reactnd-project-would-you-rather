@@ -27,17 +27,6 @@ function answerQuestion ( authedUser, qid, answer ) {
         answer
     }
 }
-export function handleAnswerQuestion (qid, answer) {
-    return (dispatch, getState) => {
-        const { authedUser } = getState();
-
-        dispatch(showLoading());
-
-        return saveQuestionAnswer(authedUser, qid, answer)
-            .then(() => dispatch(answerQuestion(authedUser, qid, answer)))
-            .then(() => dispatch(hideLoading()))
-    }
-}
 
 export function handleAddQuestion(questionInfo) {
     return (dispatch, getState) => {
