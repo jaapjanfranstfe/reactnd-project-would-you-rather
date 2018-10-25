@@ -1,6 +1,7 @@
 
 
-import { RECEIVE_USERS } from "../actions/users";
+import {RECEIVE_USERS, USER_ANSWER_QUESTION} from "../actions/users";
+import cloneDeep from "lodash/cloneDeep";
 
 export default function users (state = {}, action) {
     switch (action.type) {
@@ -8,7 +9,18 @@ export default function users (state = {}, action) {
             return {
                 ...state,
                 ...action.users
-            }
+            };
+        case USER_ANSWER_QUESTION:
+            const { userId, qid, answer } = action;
+            const clonedUser = cloneDeep(state[userId]);
+            clonedUser.answers.push({
+                qid: answer
+            });
+
+            return {
+                ...state,
+                userId: clonedUser
+            };
         default:
             return state;
     }
