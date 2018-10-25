@@ -13,9 +13,8 @@ export default function users (state = {}, action) {
         case USER_ANSWER_QUESTION:
             const { userId, qid, answer } = action;
             const clonedUser = cloneDeep(state[userId]);
-            clonedUser.answers.push({
-                qid: answer
-            });
+
+            clonedUser.answers[qid] = answer;
 
             return {
                 ...state,
