@@ -1,5 +1,5 @@
 import {RECEIVE_QUESTIONS, ANSWER_QUESTION, ADD_QUESTION} from "../actions/questions";
-import { cloneDeep } from 'lodash/cloneDeep';
+import cloneDeep from 'lodash/cloneDeep';
 
 export default function questions (state = {}, action) {
     switch (action.type) {
@@ -16,7 +16,7 @@ export default function questions (state = {}, action) {
 
             return {
                 ...state,
-                [action.qid]: clonedQuestion
+                [qid]: clonedQuestion
             };
         case ADD_QUESTION:
             const { question } = action;
