@@ -27,26 +27,15 @@ function answerQuestion ( authedUser, qid, answer ) {
         answer
     }
 }
-export function handleAnswerQuestion (qid, answer) {
-    return (dispatch, getState) => {
-        const { authedUser } = getState();
-
-        dispatch(showLoading());
-
-        return saveQuestionAnswer(authedUser, qid, answer)
-            .then(() => dispatch(answerQuestion(authedUser, qid, answer)))
-            .then(() => dispatch(hideLoading()))
-    }
-}
 
 export function handleAddQuestion(questionInfo) {
     return (dispatch, getState) => {
         const { authedUser } = getState();
         questionInfo.author = authedUser;
 
-        dispatch(showLoading())
+        dispatch(showLoading());
 
-        return saveQuestion(question)
+        return saveQuestion(questionInfo)
             .then((question) => dispatch(addQuestion(question)))
             .then(() => dispatch(hideLoading()))
     }
