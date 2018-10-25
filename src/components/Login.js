@@ -48,6 +48,8 @@ class Login extends Component {
                                         )}
                                     </Select>
                                 </FormControl>
+
+                                // TODO add login button  (only enabled when user selected) and fire action
                             </form>
                         </CardContent>
                     </Card>
@@ -58,7 +60,7 @@ class Login extends Component {
 
 function mapStateToProps({ users }) {
     return {
-        users: Object.values(users)
+        users: Object.values(users).sort((a,b) => a.name.localeCompare(b.name))
     }
 }
 export default withRouter(connect(mapStateToProps)(Login))
