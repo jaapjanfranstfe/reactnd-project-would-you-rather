@@ -5,6 +5,7 @@ import {setAuthUser} from "../../actions/authedUser";
 import DrawerMenu from './DrawerMenu';
 import ProfileMenu from "./ProfileMenu";
 import ApplicationNavBar from "./ApplicationNavBar";
+import {withRouter} from "react-router-dom";
 
 class Navigation extends React.Component {
 
@@ -20,6 +21,7 @@ class Navigation extends React.Component {
 
     handleLogout = () => {
         this.props.dispatch(setAuthUser(null));
+        this.props.history.push('/');
     };
 
     render() {
@@ -68,5 +70,5 @@ function mapStateToProps({authedUser}) {
     }
 }
 
-export default connect(mapStateToProps)(Navigation)
+export default connect(mapStateToProps)(withRouter(Navigation))
 
