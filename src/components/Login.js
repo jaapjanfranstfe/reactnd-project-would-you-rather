@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+import { setAuthUser } from "../actions/authedUser";
 import Card from '@material-ui/core/Card'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -9,6 +10,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
+
 class Login extends Component {
     state = {
         selectedUser: ''
@@ -18,8 +21,28 @@ class Login extends Component {
         this.setState({ [event.target.name]: event.target.value });
     };
 
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+        const { dispatch, history } = this.props;
+        const { from } = this.props.location.state || { from: { pathname: '/' } };
+        const {selectedUser } = this.state;
+
+        if(selectedUser && selectedUser !== '') {
+            dispatch(setAuthUser(selectedUser));
+
+
+            this.setState(() => ({
+                selectedUser: ''
+            }));
+
+            history.push(from);
+        }
+    };
+
     render() {
         const { users } = this.props;
+        const { selectedUser } = this.state;
 
         return <Grid container justify='center'>
                 <Grid item xs={6}>
@@ -48,8 +71,9 @@ class Login extends Component {
                                         )}
                                     </Select>
                                 </FormControl>
-
-                                // TODO add login button  (only enabled when user selected) and fire action
+                                <Button variant="contained" disabled={selectedUser === ''} color="primary" onClick={this.handleSubmit}>
+                                    Login
+                                </Button>
                             </form>
                         </CardContent>
                     </Card>
@@ -60,7 +84,8 @@ class Login extends Component {
 
 function mapStateToProps({ users }) {
     return {
-        users: Object.values(users).sort((a,b) => a.name.localeCompare(b.name))
+        users: Object.values(users).sort((a,b) => a.name.localeCompare(b.name)),
     }
 }
-export default withRouter(connect(mapStateToProps)(Login))
+
+export default connect(mapStateToProps)(withRouter(Login))
