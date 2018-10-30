@@ -14,6 +14,7 @@ import NoMatch from "./NoMatch";
 import Navigation from "./navigation/Navigation";
 import QuestionTabs from "./question/QuestionTabs";
 import Question from "./question/Question";
+import AddQuestion from "./question/AddQuestion";
 
 class App extends Component {
 
@@ -42,6 +43,7 @@ class App extends Component {
                                     <PrivateRoute path='/' exact component={ QuestionTabs }/>
                                     <PrivateRoute path='/leaderboard' exact component={ Leaderboard }/>
                                     <PrivateRoute path='/questions/:questionId' exact component={ Question }/>
+                                    <PrivateRoute path='/add' exact component={ AddQuestion }/>
                                     <PrivateRoute component={NoMatch} />
                                 </Switch>
                             </Grid>

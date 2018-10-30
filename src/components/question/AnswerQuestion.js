@@ -4,13 +4,11 @@ import Typography from '@material-ui/core/Typography';
 import Card from "@material-ui/core/Card";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-import {Link} from "react-router-dom";
 import {withStyles} from "@material-ui/core";
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import {answerQuestion} from "../../actions/questions";
 import {handleAnswerQuestion} from "../../actions/shared";
 
 const styles = theme => ({
