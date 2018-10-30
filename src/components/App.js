@@ -11,6 +11,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import 'typeface-roboto';
 import PrivateRoute from "./PrivateRoute";
 import NoMatch from "./NoMatch";
+import Navigation from "./navigation/Navigation";
 
 class App extends Component {
 
@@ -32,6 +33,8 @@ class App extends Component {
                     <MuiThemeProvider theme={theme}>
                         <Grid container>
                             <Grid item xs={12}>
+                                <Navigation title="Would you rather?"/>
+
                                 <Switch>
                                     <Route path='/login' exact component={ Login }/>
                                     <PrivateRoute path='/leaderboard' exact component={ Leaderboard }/>
