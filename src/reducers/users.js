@@ -18,7 +18,7 @@ export default function users (state = {}, action) {
 
             return {
                 ...state,
-                userId: clonedUser
+                [userId]: clonedUser
             };
         default:
             return state;
