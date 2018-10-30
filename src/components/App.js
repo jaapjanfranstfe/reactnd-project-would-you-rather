@@ -12,7 +12,7 @@ import 'typeface-roboto';
 import PrivateRoute from "./PrivateRoute";
 import NoMatch from "./NoMatch";
 import Navigation from "./navigation/Navigation";
-import QuestionTabs from "./QuestionTabs";
+import QuestionTabs from "./question/QuestionTabs";
 
 class App extends Component {
 
