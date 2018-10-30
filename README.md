@@ -7,6 +7,11 @@ Features:
 * add your own questions to the mix!
 * a leaderboard that let's you compare your poll answering skills to others
 
+# System requirements
+Before you can run this application you will need to have the following installed on your computer:
+* The `Nodejs` runtime (visit https://nodejs.org/ for install instructions)
+* A package-manager. Either `npm` (comes with `nodejs`, no need for seperate install) or `yarn` (visit https://yarnpkg.com/ for install instructions)
+will work perfectly
 
 # How to run using NPM
 Run `npm install` to install all needed dependencies. The run `npm start` to start the application.
