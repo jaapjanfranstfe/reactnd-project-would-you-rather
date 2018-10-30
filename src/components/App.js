@@ -35,7 +35,7 @@ class App extends Component {
                                 <Switch>
                                     <Route path='/login' exact component={ Login }/>
                                     <PrivateRoute path='/leaderboard' exact component={ Leaderboard }/>
-                                    <Route component={NoMatch} />
+                                    <PrivateRoute component={NoMatch} />
                                 </Switch>
                             </Grid>
                         </Grid>
