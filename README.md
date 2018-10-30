@@ -22,6 +22,6 @@ Run `yarn` to install all needed dependencies. The run `yarn start` to start the
 The local node server will startup and the application will be available in your browser on `http://localhost:3000`.
 
 # Thanks to
-this post from tyler for teaching me a private route/login approach: https://tylermcginnis.com/react-router-protected-routes-authentication/
+this post from tyler McGinnis for teaching me a private route/login approach: https://tylermcginnis.com/react-router-protected-routes-authentication/
 This post provided also from tyler provided good insights on router 404 rendering: https://tylermcginnis.com/react-router-handling-404-pages/
 and the udacity react nanodegree program for it's study material (especially the chirper app part of the redux course was helpfull for making this project)
