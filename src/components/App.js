@@ -12,6 +12,7 @@ import 'typeface-roboto';
 import PrivateRoute from "./PrivateRoute";
 import NoMatch from "./NoMatch";
 import Navigation from "./navigation/Navigation";
+import QuestionTabs from "./QuestionTabs";
 
 class App extends Component {
 
@@ -37,6 +38,7 @@ class App extends Component {
 
                                 <Switch>
                                     <Route path='/login' exact component={ Login }/>
+                                    <PrivateRoute path='/' exact component={ QuestionTabs }/>
                                     <PrivateRoute path='/leaderboard' exact component={ Leaderboard }/>
                                     <PrivateRoute component={NoMatch} />
                                 </Switch>

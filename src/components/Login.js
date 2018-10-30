@@ -45,7 +45,7 @@ class Login extends Component {
         const { selectedUser } = this.state;
 
         return <Grid container justify='center'>
-                <Grid item xs={6}>
+                <Grid item xs={12} md={10} lg={8} xl={6}>
                     <Card>
                         <CardContent>
                             <Typography variant="h3" gutterBottom>
