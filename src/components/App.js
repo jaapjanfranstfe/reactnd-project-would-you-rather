@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from "../actions/shared";
 import Login from './Login'
@@ -10,6 +10,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { createMuiTheme } from '@material-ui/core/styles';
 import 'typeface-roboto';
 import PrivateRoute from "./PrivateRoute";
+import NoMatch from "./NoMatch";
 
 class App extends Component {
 
@@ -31,8 +32,11 @@ class App extends Component {
                     <MuiThemeProvider theme={theme}>
                         <Grid container>
                             <Grid item xs={12}>
-                                <Route path='/login' exact component={ Login }/>
-                                <PrivateRoute path='/leaderboard' exact component={ Leaderboard }/>
+                                <Switch>
+                                    <Route path='/login' exact component={ Login }/>
+                                    <PrivateRoute path='/leaderboard' exact component={ Leaderboard }/>
+                                    <Route component={NoMatch} />
+                                </Switch>
                             </Grid>
                         </Grid>
                     </MuiThemeProvider>
