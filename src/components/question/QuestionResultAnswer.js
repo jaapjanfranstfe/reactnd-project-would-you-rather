@@ -11,9 +11,10 @@ const styles = () => ({
 
 const QuestionResultAnswer = ({question, optionId, user, classes}) => {
     const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length;
-    const percentage = Math.round(100 * question[optionId].votes.length / totalVotes);
+    const currentOptionVotes = question[optionId].votes.length;
+    const percentage = Math.round((100 * currentOptionVotes) / totalVotes);
 
-
+console.log('USER', user.answers[question.id])
     return <div className={classes.root}>
         <Typography>
             {question[optionId].text}
@@ -25,6 +26,9 @@ const QuestionResultAnswer = ({question, optionId, user, classes}) => {
         }
 
         <LinearProgress variant="determinate" value={percentage}/>
+        <Typography>
+            {currentOptionVotes} out of {totalVotes} votes
+        </Typography>
     </div>
 };
 
