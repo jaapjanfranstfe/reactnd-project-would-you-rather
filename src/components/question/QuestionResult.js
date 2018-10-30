@@ -2,14 +2,9 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Card from "@material-ui/core/Card";
 import Avatar from "@material-ui/core/Avatar";
-import {withStyles} from "@material-ui/core";
 import QuestionResultAnswer from "./QuestionResultAnswer";
 
-const styles = theme => ({
-
-});
-
-const QuestionResult = ({question, author, user, classes}) => (
+const QuestionResult = ({question, author, user}) => (
     <Card>
         <Typography>
             {author.name} asks
@@ -27,4 +22,4 @@ const QuestionResult = ({question, author, user, classes}) => (
     </Card>
 );
 
-export default withStyles(styles)(QuestionResult);
+export default QuestionResult;
