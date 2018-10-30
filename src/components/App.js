@@ -11,7 +11,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import 'typeface-roboto';
 import PrivateRoute from "./PrivateRoute";
 import NoMatch from "./NoMatch";
-import Navigation from "./Navigation";
+import Navigation from "./navigation/Navigation";
 
 class App extends Component {
 
