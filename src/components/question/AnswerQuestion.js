@@ -37,8 +37,6 @@ class AnswerQuestion extends Component {
         const {selectedOption} = this.state;
 
         dispatch(handleAnswerQuestion(authedUser, question.id, selectedOption));
-
-
     };
 
     render() {
