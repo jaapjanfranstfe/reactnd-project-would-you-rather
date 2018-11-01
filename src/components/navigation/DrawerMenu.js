@@ -42,7 +42,7 @@ const DrawerMenu = ({ classes, isDrawerOpen, onToggleDrawer, menuItems }) =>
                 <List>
                     {menuItems.map((menuItem) => (
                         <ListItem button key={menuItem.label} component={Link} to={menuItem.path}>
-                            <ListItemIcon><Icon>menu</Icon></ListItemIcon>
+                            <ListItemIcon><Icon>{menuItem.icon}</Icon></ListItemIcon>
                             <ListItemText primary={menuItem.label} />
                         </ListItem>
                     ))}

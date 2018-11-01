@@ -28,14 +28,17 @@ class Navigation extends React.Component {
         const drawerMenuItems = [
             {
                 label: 'Questions',
+                icon: 'question_answer',
                 path: '/'
             },
             {
                 label: 'Leaderboard',
+                icon: 'people',
                 path: '/leaderboard'
             },
             {
-                label: 'Create new question',
+                label: 'New question',
+                icon: 'add_circle',
                 path: '/add'
             }
         ];
