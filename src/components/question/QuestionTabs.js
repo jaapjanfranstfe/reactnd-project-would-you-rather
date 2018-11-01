@@ -8,7 +8,6 @@ import {withStyles} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import {connect} from "react-redux";
 import QuestionList from "./QuestionList";
-import CardContent from "@material-ui/core/CardContent";
 
 function TabContainer(props) {
     return (

@@ -1,6 +1,4 @@
 import Toolbar from "../../../node_modules/@material-ui/core/Toolbar/Toolbar";
-import IconButton from "../../../node_modules/@material-ui/core/IconButton/IconButton";
-import Icon from "@material-ui/core/Icon";
 import Typography from "../../../node_modules/@material-ui/core/Typography/Typography";
 import AppBar from "../../../node_modules/@material-ui/core/AppBar/AppBar";
 import React from "react";
