@@ -3,6 +3,8 @@ import Icon from "@material-ui/core/Icon";
 import Menu from "../../../node_modules/@material-ui/core/Menu/Menu";
 import MenuItem from "../../../node_modules/@material-ui/core/MenuItem/MenuItem";
 import React from "react";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
 
 class ProfileMenu extends React.Component {
     state = {
@@ -28,13 +30,20 @@ class ProfileMenu extends React.Component {
         }));
     };
 
+
     render() {
-        const { menuItems } = this.props;
+        const { menuItems, user } = this.props;
         const { anchorElement } = this.state;
         const isProfileMenuOpen = Boolean(anchorElement);
 
         return <div>
-            <IconButton
+            <Grid container>
+                <Grid item>
+            <Typography style={{color: '#ffffff'}}>Hi {user}!</Typography>
+                </Grid>
+                <Grid item>
+
+                <IconButton
                 aria-owns={isProfileMenuOpen ? 'menu-appbar' : undefined}
                 aria-haspopup="true"
                 onClick={this.handleOpenMenu}
@@ -42,6 +51,8 @@ class ProfileMenu extends React.Component {
             >
                 <Icon>account_circle</Icon>
             </IconButton>
+                </Grid>
+            </Grid>
             <Menu
                 id="menu-appbar"
                 anchorEl={anchorElement}

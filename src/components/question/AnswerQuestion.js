@@ -44,7 +44,7 @@ class AnswerQuestion extends Component {
         const {selectedOption} = this.state;
 
         return <Card>
-            <Typography>
+            <Typography variant="h3">
                 {author.name} asks
             </Typography>
             <Avatar

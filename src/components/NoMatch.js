@@ -1,8 +1,8 @@
 import React from "react";
 
-const NoMatch = ({ location }) => (
+const NoMatch = () => (
   <div>
-    <h3>No page found for <code>{location.pathname} :-(</code></h3>
+    <h3>404 No page found  :-(</h3>
   </div>
 );
 

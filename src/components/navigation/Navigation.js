@@ -9,16 +9,6 @@ import {withRouter} from "react-router-dom";
 
 class Navigation extends React.Component {
 
-    state = {
-        isDrawerOpen: false
-    };
-
-    toggleDrawer = (isOpen) => () => {
-        this.setState({
-            isDrawerOpen: isOpen
-        });
-    };
-
     handleLogout = () => {
         this.props.dispatch(setAuthUser(null));
         this.props.history.push('/');
@@ -51,17 +41,14 @@ class Navigation extends React.Component {
         ];
 
         const { authedUser, title} = this.props;
-        const { isDrawerOpen } = this.state;
-
-
 
         return <Fragment>
-                    <ApplicationNavBar showMenus={authedUser} onClickMenuIcon={this.toggleDrawer} title={title}>
+                    <ApplicationNavBar showMenus={authedUser} title={title}>
                         {authedUser &&
-                            <ProfileMenu menuItems={profileMenuItems}/>
+                            <ProfileMenu menuItems={profileMenuItems} user={authedUser}/>
                         }
                     </ApplicationNavBar>
-                    <DrawerMenu isDrawerOpen={isDrawerOpen} onToggleDrawer={this.toggleDrawer} menuItems={drawerMenuItems} />
+                    <DrawerMenu menuItems={drawerMenuItems} />
                </Fragment>
 
     }

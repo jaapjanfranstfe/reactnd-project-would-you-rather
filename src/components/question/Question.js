@@ -2,12 +2,17 @@ import React from 'react';
 import {connect} from 'react-redux';
 import AnswerQuestion from "./AnswerQuestion";
 import QuestionResult from "./QuestionResult";
+import {Redirect} from "react-router-dom";
 
-const Question = ({question, author, user}) => {
-console.log(question, author, user);
+const Question = ({question, users, user}) => {
+        if(!question) {
+            return <Redirect to='/404'  />
+        }
+
         const questionIsAnswered = user.answers[question.id] !== undefined;
 
-        if(!questionIsAnswered) {
+        const author = users[question.author];
+        if (!questionIsAnswered) {
             return <AnswerQuestion question={question} author={author}/>;
         } else {
             return <QuestionResult question={question} author={author} user={user}/>
@@ -17,13 +22,14 @@ console.log(question, author, user);
 function mapStateToProps({questions, users, authedUser}, ownProps) {
     const { questionId } = ownProps.match.params;
     const question = questions[questionId];
-    const author = users[question.author];
+
     const authedUserObject = users[authedUser];
 
     return {
         question,
-        author,
+        users,
         user: authedUserObject
     }
+
 }
 export default connect(mapStateToProps)(Question);

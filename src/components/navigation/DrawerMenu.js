@@ -22,21 +22,16 @@ const styles = {
     },
 };
 
-const DrawerMenu = ({ classes, isDrawerOpen, onToggleDrawer, menuItems }) =>
+const DrawerMenu = ({ classes, menuItems }) =>
     <Drawer
         variant="permanent"
         className={classes.drawer}
         classes={{
             paper: classes.drawerPaper,
-        }}
-        open={isDrawerOpen}
-        onClose={onToggleDrawer(false)}
-        onOpen={onToggleDrawer(true)}>
+        }}>
         <div
             tabIndex={0}
-            role="button"
-            onClick={onToggleDrawer(false)}
-            onKeyDown={onToggleDrawer(false)}>
+            role="button">
             <div className={classes.list}>
                 <List>
                     {menuItems.map((menuItem) => (
