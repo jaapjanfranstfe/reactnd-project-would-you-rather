@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from "../actions/shared";
 import Login from './Login'
-import Leaderboard from "./Leaderboard";
+import Leaderboard from "./leaderboard/Leaderboard";
 import Grid from '@material-ui/core/Grid'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import CssBaseline from '@material-ui/core/CssBaseline';
