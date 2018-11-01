@@ -7,15 +7,29 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Icon from "@material-ui/core/Icon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { withStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
 
+const drawerWidth = 240;
 const styles = {
     list: {
-        width: 250,
-    }
+        width: drawerWidth,
+    },
+    drawer: {
+        width: drawerWidth,
+        flexShrink: 0,
+    },
+    drawerPaper: {
+        width: drawerWidth,
+    },
 };
 
 const DrawerMenu = ({ classes, isDrawerOpen, onToggleDrawer, menuItems }) =>
-    <SwipeableDrawer
+    <Drawer
+        variant="permanent"
+        className={classes.drawer}
+        classes={{
+            paper: classes.drawerPaper,
+        }}
         open={isDrawerOpen}
         onClose={onToggleDrawer(false)}
         onOpen={onToggleDrawer(true)}>
@@ -36,6 +50,6 @@ const DrawerMenu = ({ classes, isDrawerOpen, onToggleDrawer, menuItems }) =>
 
             </div>
         </div>
-    </SwipeableDrawer>
+    </Drawer>
 
 export default  withStyles(styles)(DrawerMenu)

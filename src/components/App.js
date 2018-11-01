@@ -15,6 +15,16 @@ import Navigation from "./navigation/Navigation";
 import QuestionTabs from "./question/QuestionTabs";
 import Question from "./question/Question";
 import AddQuestion from "./question/AddQuestion";
+import {withStyles} from "@material-ui/core";
+
+const styles = theme =>  ({
+    content: {
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.default,
+        padding: theme.spacing.unit * 3,
+    },
+    toolbar: theme.mixins.toolbar
+});
 
 class App extends Component {
 
@@ -29,24 +39,28 @@ class App extends Component {
             },
         });
 
+        const { classes } = this.props;
+
         return (
             <Fragment>
                 <CssBaseline/>
                 <Router>
                     <MuiThemeProvider theme={theme}>
                         <Grid container>
-                            <Grid item xs={12}>
-                                <Navigation title="Would you rather?"/>
 
-                                <Switch>
-                                    <Route path='/login' exact component={ Login }/>
-                                    <PrivateRoute path='/' exact component={ QuestionTabs }/>
-                                    <PrivateRoute path='/leaderboard' exact component={ Leaderboard }/>
-                                    <PrivateRoute path='/questions/:questionId' exact component={ Question }/>
-                                    <PrivateRoute path='/add' exact component={ AddQuestion }/>
-                                    <PrivateRoute component={NoMatch} />
-                                </Switch>
-                            </Grid>
+                                <Navigation title="Would you rather?"/>
+                                <main className={classes.content}>
+                                    <div className={classes.toolbar}/>
+                                    <Switch>
+                                        <Route path='/login' exact component={ Login }/>
+                                        <PrivateRoute path='/' exact component={ QuestionTabs }/>
+                                        <PrivateRoute path='/leaderboard' exact component={ Leaderboard }/>
+                                        <PrivateRoute path='/questions/:questionId' exact component={ Question }/>
+                                        <PrivateRoute path='/add' exact component={ AddQuestion }/>
+                                        <PrivateRoute component={NoMatch} />
+                                    </Switch>
+                                </main>
+
                         </Grid>
                     </MuiThemeProvider>
                 </Router>
@@ -55,4 +69,4 @@ class App extends Component {
     }
 }
 
-export default connect()(App)
+export default connect()(withStyles(styles)(App))
