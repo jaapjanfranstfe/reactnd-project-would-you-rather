@@ -16,6 +16,7 @@ import QuestionTabs from "./question/QuestionTabs";
 import Question from "./question/Question";
 import AddQuestion from "./question/AddQuestion";
 import {withStyles} from "@material-ui/core";
+import {LoadingBar} from "react-redux-loading";
 
 const styles = theme =>  ({
     content: {
@@ -43,6 +44,7 @@ class App extends Component {
 
         return (
             <Fragment>
+
                 <CssBaseline/>
                 <Router>
                     <MuiThemeProvider theme={theme}>
@@ -51,6 +53,7 @@ class App extends Component {
                                 <Navigation title="Would you rather?"/>
                                 <main className={classes.content}>
                                     <div className={classes.toolbar}/>
+                                    <LoadingBar/>
                                     <Switch>
                                         <Route path='/login' exact component={ Login }/>
                                         <PrivateRoute path='/' exact component={ QuestionTabs }/>
