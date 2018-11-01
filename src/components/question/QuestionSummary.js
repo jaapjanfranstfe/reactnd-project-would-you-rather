@@ -8,13 +8,14 @@ import {Link} from 'react-router-dom'
 
 const QuestionSummary = ({question, author}) => (
     <Card>
-        <Typography>
-            {author.name} says...
-        </Typography>
+
         <Avatar
             alt={author.name}
             src={author.avatarURL}
         />
+        <Typography variant="h5">
+            {author.name} says...
+        </Typography>
         <Typography>
             ...{question.optionOne.text.substring(0, 15)}...
         </Typography>

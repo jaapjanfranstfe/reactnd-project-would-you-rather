@@ -15,17 +15,17 @@ const UserStats = ({user}) => {
                 alt={user.name}
                 src={user.avatarURL}
             />
-            <Typography>
+            <Typography variant="h5">
                 {user.name}
             </Typography>
             <Typography>
-                Answered questions {answered}
+                Answered questions: {answered}
             </Typography>
             <Typography>
-                Created questions {created}
+                Created questions: {created}
             </Typography>
-            <Typography>
-                Score {answered + created}
+            <Typography variant="h6">
+                Score: {answered + created}
             </Typography>
 
         </CardContent>

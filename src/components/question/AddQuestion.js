@@ -55,8 +55,8 @@ class AddQuestion extends Component {
 
         return <Card>
                     <CardContent>
-                        <Typography>Create new question</Typography>
-                        <Typography>Complete the question</Typography>
+                        <Typography variant="h3">Create new question</Typography>
+                        <Typography variant="subtitle1">Complete the question</Typography>
                         <Typography>Would you rather</Typography>
                         <Input
                             id="optionOneText"

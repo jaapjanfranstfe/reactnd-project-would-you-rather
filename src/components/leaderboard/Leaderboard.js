@@ -3,10 +3,13 @@ import Card from "@material-ui/core/Card";
 import CardContent from '@material-ui/core/CardContent';
 import UserStats from "./UserStats";
 import {connect} from 'react-redux';
+import Typography from "../../../node_modules/@material-ui/core/Typography/Typography";
 
 const LeaderBoard = ({sortedUserArray}) => (
     <Card>
         <CardContent>
+            <Typography variant="h3">Leaderboard</Typography>
+
             {sortedUserArray.map(user => <UserStats key={user.id} user={user}/>)}
         </CardContent>
     </Card>

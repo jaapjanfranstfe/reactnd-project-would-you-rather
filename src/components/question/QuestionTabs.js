@@ -8,6 +8,7 @@ import {withStyles} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import {connect} from "react-redux";
 import QuestionList from "./QuestionList";
+import CardContent from "@material-ui/core/CardContent";
 
 function TabContainer(props) {
     return (
@@ -42,27 +43,29 @@ class QuestionTabs extends Component {
         const authedUserObject = users[authedUser];
         const questionsArray = Object.values(questions);
 
-        return <Grid container justify='center'>
-                <Grid item xs={12} md={10} lg={8} xl={6}>
+        return <Grid container>
+                <Grid item xs={12}>
                     <Paper>
-                <Tabs
-                    value={selectedTabIndex}
-                    onChange={this.handleChange}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    centered
-                >
-                    <Tab label="unanswered" />
-                    <Tab label="Answered" />
-                </Tabs>
-                {selectedTabIndex === 0 &&
-                    <TabContainer>
-                        <QuestionList questions={questionsArray.filter(question => authedUserObject.answers[question.id] === undefined)} authors={users}/>
-                    </TabContainer>}
-                {selectedTabIndex === 1 &&
-                <TabContainer>
-                    <QuestionList questions={questionsArray.filter(question => authedUserObject.answers[question.id] !== undefined)} authors={users}/>
-                </TabContainer>}
+                        <Typography variant="h3">Questions</Typography>
+
+                        <Tabs
+                            value={selectedTabIndex}
+                            onChange={this.handleChange}
+                            indicatorColor="primary"
+                            textColor="primary"
+                            centered
+                        >
+                            <Tab label="unanswered" />
+                            <Tab label="Answered" />
+                        </Tabs>
+                        {selectedTabIndex === 0 &&
+                            <TabContainer>
+                                <QuestionList questions={questionsArray.filter(question => authedUserObject.answers[question.id] === undefined)} authors={users}/>
+                            </TabContainer>}
+                        {selectedTabIndex === 1 &&
+                        <TabContainer>
+                            <QuestionList questions={questionsArray.filter(question => authedUserObject.answers[question.id] !== undefined)} authors={users}/>
+                        </TabContainer>}
                     </Paper>
                 </Grid>
             </Grid>;
