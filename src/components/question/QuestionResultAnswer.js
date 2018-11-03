@@ -14,10 +14,9 @@ const QuestionResultAnswer = ({question, optionId, user, classes}) => {
     const currentOptionVotes = question[optionId].votes.length;
     const percentage = Math.round((100 * currentOptionVotes) / totalVotes);
 
-console.log('USER', user.answers[question.id])
     return <div className={classes.root}>
-        <Typography>
-            {question[optionId].text}
+        <Typography variant="subtitle1">
+            {optionId}: {question[optionId].text}
         </Typography>
         {user.answers[question.id] === optionId &&
             <Typography variant="h6">
