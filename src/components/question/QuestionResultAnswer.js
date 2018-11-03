@@ -20,7 +20,7 @@ console.log('USER', user.answers[question.id])
             {question[optionId].text}
         </Typography>
         {user.answers[question.id] === optionId &&
-            <Typography>
+            <Typography variant="h6">
                 YOUR PICK
             </Typography>
         }
